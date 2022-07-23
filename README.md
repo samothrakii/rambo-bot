@@ -12,11 +12,11 @@ $ cd discord-bot
 
 You need to add these following environment variables to `.env` (recommended) or `~/.profile` file
 ```
-TOKEN=${your-discord-bot-token}
-MONGO_URI=${your-mongodb-uri}
-APP_ID=${your-discord-bot-application-id}
-GUILD_ID=${your-target-guild-id}
-CHANNEL_ID=${your-target-channel-id}
+TOKEN=[BOT_TOKEN]
+MONGO_URI=[MONGODB_URI]
+APP_ID=[APPLICATION_ID]
+GUILD_ID=[TARGET_GUILD_ID]
+CHANNEL_ID=[TARGET_CHANNEL_ID]
 ```
 
 ## Build and run
