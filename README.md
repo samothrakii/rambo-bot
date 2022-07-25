@@ -1,4 +1,4 @@
-# rambo-bot
+# RAMBO bot
 My Discord bot, its name is Rambo
 
 ## Requirements
@@ -6,8 +6,8 @@ In able to compile and run project, make sure `node@16` and `npm@8` or above is 
 
 Clone repository by `git clone` to your local computer:
 ```shell script
-$ git clone git@github.com:Sam0thrace/discord-bot.git
-$ cd discord-bot
+$ git clone git@github.com:Sam0thrace/rambo-bot.git
+$ cd rambo-bot
 ```
 
 You need to add these following environment variables to `.env` (recommended) or `~/.profile` file
