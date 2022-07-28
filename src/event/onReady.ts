@@ -90,15 +90,19 @@ export const onReady = async (bot: Client) => {
           }
 
           if (feeds.items) {
-            const msgList: MessageEmbed[] = feeds.items.slice(0, 5).map((feed: any) => {
+            const msgList: MessageEmbed[] = feeds.items.slice(0, 3).map((feed: any) => {
               const msg = new MessageEmbed();
               msg.setTitle(feed.title);
               msg.setDescription(feed.contentSnippet);
               msg.addFields({ name: 'Chi tiết: ', value: feed.link, inline: true });
               return msg;
             });
+            msgList.push(new MessageEmbed({
+              description: `Use \`/rss ${rss.name}\` command to get more feeds!`,
+            }));
             channel.createWebhook(title, { avatar: bot.user?.displayAvatarURL() })
-              .then(h => h.send({ embeds: msgList }));
+              .then(h => h.send({ embeds: msgList }))
+              .finally(() => channel.fetchWebhooks().then(h => h.forEach(w => w.delete())));
           }
         }
       }, null, true, 'Asia/Ho_Chi_Minh');

@@ -22,7 +22,6 @@ export const creupdmember: Command = {
         .setRequired(true)),
   run: async (interaction) => {
     await interaction.deferReply();
-
     const { user } = interaction;
 
     const alias = interaction.options.getString('alias', true);
@@ -37,8 +36,8 @@ export const creupdmember: Command = {
     if (member) {
       msg.setTitle(`Welcome ${member.alias}!`);
       msg.setDescription(`Your ID that I remember is ${member._id}`);
-      msg.addField('Discord ID', member.discordId, true);
-      msg.addField('Steam ID', member.steamId, true);
+      msg.addFields({ name: 'Discord ID', value: member.discordId, inline: true });
+      msg.addFields({ name: 'Steam ID', value: member.steamId, inline: true });
     } else {
       msg.setTitle('Failed');
       msg.setDescription(
