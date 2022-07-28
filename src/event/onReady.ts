@@ -1,11 +1,13 @@
 import { REST } from '@discordjs/rest';
-import { Client, TextChannel } from 'discord.js';
+import { Client, MessageEmbed, TextChannel, EmbedFieldData } from 'discord.js';
 import { Routes } from 'discord-api-types/v9';
 import { commandList } from '../command/_CommandList';
 import { ActivityTypes } from 'discord.js/typings/enums';
 import { ACTIVITY_TYPES, COMPETING_LIST, PLAYING_LIST, WATCHING_LIST } from '../util/constant';
+import { getAllRss } from '../module/rssCrud';
 
 const CronJob = require('cron').CronJob;
+const RssParser = require('rss-parser');
 
 export const onReady = async (bot: Client) => {
   const rest = new REST({ version: '9' }).setToken(
@@ -68,11 +70,40 @@ export const onReady = async (bot: Client) => {
       { allowUnknownGuild: false }
     ) as TextChannel;
 
+
     if (channel) {
-      let job = new CronJob('00 05 21 * * *', () => {
+      let dotaJob = new CronJob('00 00 21 * * *', () => {
         channel.send('Tới giờ tắm giếng mỗi ngày rùi @everyone ei');
       }, null, true, 'Asia/Ho_Chi_Minh');
-      job.start();
+      dotaJob.start();
+      console.log('DotaJob started');
+
+      let newsJob = new CronJob('00 00 09,18 * * *', async () => {
+        const rssList = await getAllRss();
+        const rssParser = new RssParser();
+        for (let rss of rssList) {
+          const feeds = await rssParser.parseURL(rss.link);
+
+          let title = rss.name;
+          if (feeds.title) {
+            title = feeds.title;
+          }
+
+          if (feeds.items) {
+            const msgList: MessageEmbed[] = feeds.items.slice(0, 5).map((feed: any) => {
+              const msg = new MessageEmbed();
+              msg.setTitle(feed.title);
+              msg.setDescription(feed.contentSnippet);
+              msg.addFields({ name: 'Chi tiết: ', value: feed.link, inline: true });
+              return msg;
+            });
+            channel.createWebhook(title, { avatar: bot.user?.displayAvatarURL() })
+              .then(h => h.send({ embeds: msgList }));
+          }
+        }
+      }, null, true, 'Asia/Ho_Chi_Minh');
+      newsJob.start();
+      console.log('NewsJob started');
     }
   }
 };
