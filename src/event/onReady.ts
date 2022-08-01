@@ -117,7 +117,7 @@ export const onReady = async (bot: Client) => {
 
     if (devChannel) {
       let dailyUpdateJob = new CronJob('00 00 19 * * *', () => {
-        devChannel.send(`Hi @dev, Have you had any obstacle yesterday? Please raise here, let others help you.`);
+        devChannel.send(`Hi @here, Have you had any obstacle yesterday? Please raise here, let others help you.`);
       }, null, true, 'Asia/Ho_Chi_Minh');
       dailyUpdateJob.start();
       console.log('DailyUpdateJob started');
