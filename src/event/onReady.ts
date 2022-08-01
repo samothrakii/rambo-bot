@@ -109,6 +109,19 @@ export const onReady = async (bot: Client) => {
       newsJob.start();
       console.log('NewsJob started');
     }
+
+    const devChannel = await bot.channels.fetch(
+      process.env.DEV_CHANNEL_ID as string,
+      { allowUnknownGuild: false }
+    ) as TextChannel;
+
+    if (devChannel) {
+      let dailyUpdateJob = new CronJob('00 00 19 * * *', () => {
+        devChannel.send(`Hi @dev, Have you had any obstacle? Please raise here, let others help you.`);
+      }, null, true, 'Asia/Ho_Chi_Minh');
+      dailyUpdateJob.start();
+      console.log('DailyUpdateJob started');
+    }
   }
 };
 
