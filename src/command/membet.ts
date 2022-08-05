@@ -26,8 +26,8 @@ export const membet: Command = {
       msg.setTitle(alias ? `All uncompleted bets of ${alias}` : 'All uncompleted bets');
       msg.setDescription('List of all football bets that not yet completed');
       bets.forEach(b => msg.addFields({
-        name: `Match ${b.home.name} - ${b.home.odds} vs ${b.away.name} - ${b.away.odds}`,
-        value: `Corresponding bettor: ${b.home.bettor.join(', ')} vs ${b.away.bettor.join(', ')}`,
+        name: `Match ID: ${b._id}`,
+        value: `Corresponding bettor: ${b.home.name} - ${b.home.bettor.join(', ')} vs ${b.away.name} - ${b.away.bettor.join(', ')}`,
         inline: false
       }));
     } else {

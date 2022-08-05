@@ -63,3 +63,13 @@ export const findByAlias = async (alias: string) => {
 
   return member;
 }
+
+export const findByAliases = async (aliases: string[]) => {
+  const members = await MemberModel.find({ alias: { $in: aliases } });
+  if (!members) {
+    console.error(`Could not find any Member has aliases ${aliases}!`);
+    return [];
+  }
+
+  return members;
+}

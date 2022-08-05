@@ -8,5 +8,9 @@ import { meminfo } from "./meminfo";
 import { roll } from "./roll";
 import { rss } from "./rss";
 import { membet } from "./membet";
+import { fbetrs } from "./fbetrs";
 
-export const commandList: Command[] = [roll, cd, ucmem, addquotes, addrss, rss, fbet, meminfo, membet];
+export const commandList: Command[] = [
+  roll, cd, ucmem, addquotes, addrss, rss, fbet, meminfo,
+  membet, fbetrs
+];

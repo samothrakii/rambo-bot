@@ -25,3 +25,13 @@ export const getAllFootballBets = async (completed: boolean = false) => {
 
   return bets;
 }
+
+export const findById = async (id: string) => {
+  const bet = await FootbalBetModel.findOne({ _id: id });
+  if (!bet) {
+    console.error(`Could not find any Football bet has matchId ${id}!`);
+    return null;
+  }
+
+  return bet;
+}
