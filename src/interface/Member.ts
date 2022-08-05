@@ -5,4 +5,5 @@ export interface Member extends Document {
   discordId: string;
   steamId: string;
   quotes: string[];
+  debt: number;
 }

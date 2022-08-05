@@ -4,9 +4,9 @@ import MemberModel from "../db/model/MemberModel";
 import { Command } from "../interface/Command";
 import { createOrUpdateMemberRecord } from "../module/memberCrud";
 
-export const creupdmember: Command = {
+export const ucmem: Command = {
   data: new SlashCommandBuilder()
-    .setName('creupdmember')
+    .setName('ucmem')
     .setDescription('Create new member or update existed one')
     .addStringOption((option) =>
       option.setName('alias')

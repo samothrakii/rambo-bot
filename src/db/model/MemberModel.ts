@@ -18,6 +18,10 @@ export const MemberSchema = new Schema({
     type: String,
     default: [],
   }],
+  debt: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export default model<Member>('member', MemberSchema);
