@@ -47,7 +47,7 @@ export const addMemberQuotesRecord = async (alias: string, quotes: string[]) => 
 export const getAllMembers = async () => {
   const members = await MemberModel.find();
   if (!members) {
-    console.error('Could not find any Members!');
+    console.error('Could not find any Member!');
     return [];
   }
 
