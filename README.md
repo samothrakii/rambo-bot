@@ -6,7 +6,7 @@ In able to compile and run project, make sure `node@16` and `npm@8` or above is 
 
 Clone repository by `git clone` to your local computer:
 ```shell script
-$ git clone git@github.com:Sam0thrace/rambo-bot.git
+$ git clone git@github.com:khoarx/rambo-bot.git
 $ cd rambo-bot
 ```
 
