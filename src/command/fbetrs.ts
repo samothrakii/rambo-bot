@@ -40,8 +40,8 @@ export const fbetrs: Command = {
       bet.result.away = awayScore;
       bet.completed = true;
 
-      homeScore = homeScore * bet.home.odds;
-      awayScore = awayScore * bet.away.odds;
+      homeScore = homeScore + bet.home.odds;
+      awayScore = awayScore + bet.away.odds;
 
       let desc = 'Match draw no one win!';
       if (homeScore > awayScore) {

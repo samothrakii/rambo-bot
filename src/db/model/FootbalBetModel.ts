@@ -9,7 +9,7 @@ const FootballBetTeamSchema = new Schema({
   odds: {
     type: Number,
     required: [true, 'Bet must have an odds'],
-    validate: [(val: number) => val >= 1.0, 'Odds must be greater than 1.0'],
+    validate: [(val: number) => val >= 0.0, 'Odds must be greater than or equal 0.0'],
   },
   bettor: [{
     type: String,

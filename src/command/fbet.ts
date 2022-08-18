@@ -31,11 +31,11 @@ export const fbet: Command = {
         .setRequired(true))
     .addNumberOption((option) =>
       option.setName('home_odds')
-        .setDescription('Odds of home team, default is 1.0')
+        .setDescription('Odds of home team, default is 0')
         .setRequired(false))
     .addNumberOption((option) =>
       option.setName('away_odds')
-        .setDescription('Odds of away team, default is 1.0')
+        .setDescription('Odds of away team, default is 0')
         .setRequired(false)),
   run: async (interaction) => {
     await interaction.deferReply();
@@ -46,12 +46,12 @@ export const fbet: Command = {
     const homeName = interaction.options.getString('home_name', true);
     const homeBettor = interaction.options.getString('home_bettor', true)
       .split(',').map(s => s.trim());
-    const homeOdds = interaction.options.getNumber('home_odds', false) || 1.0;
+    const homeOdds = interaction.options.getNumber('home_odds', false) || 0.0;
 
     const awayName = interaction.options.getString('away_name', true);
     const awayBettor = interaction.options.getString('away_bettor', true)
       .split(',').map(s => s.trim());
-    const awayOdds = interaction.options.getNumber('away_odds', false) || 1.0;
+    const awayOdds = interaction.options.getNumber('away_odds', false) || 0.0;
 
     const members = (await getAllMembers()).map(m => m.alias);
     const msg = new MessageEmbed();
