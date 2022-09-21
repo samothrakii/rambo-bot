@@ -22,12 +22,12 @@ CHANNEL_ID=[TARGET_CHANNEL_ID]
 ## Build and run
 Install all dependencies:
 ```shell script
-$ yarn install
+$ npm install
 ```
 Compile and run your bot:
 ```shell script
-$ yarn build
-$ yarn start
+$ npm run build
+$ npm start
 ```
 
 ## References
