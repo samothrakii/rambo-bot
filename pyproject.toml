@@ -3,7 +3,7 @@ name = "rambo-bot"
 version = "1.0.0"
 description = "My discord bot, its name is Rambo"
 authors = ["ldquan1996 <luongdoanhquan1996@gmail.com>"]
-license = "GPL-3.0"
+license = ""
 readme = "README.md"
 packages = [{include = "rambo_bot"}]
 
