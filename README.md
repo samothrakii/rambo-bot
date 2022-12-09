@@ -1,12 +1,12 @@
 # RAMBO bot
-My Discord bot, its name is Rambo
+Our Discord bot, its name is Rambo
 
 ## Requirements
 In able to compile and run project, make sure `go1.19` or above is installed.
 
 Clone repository by `git clone` to your local computer:
 ```shell script
-$ git clone git@github.com:khoarx/rambo-bot.git
+$ git clone git@github.com:samothrakii/rambo-bot.git
 $ cd rambo-bot
 ```
 
