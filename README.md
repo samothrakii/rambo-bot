@@ -1,34 +1,36 @@
 # RAMBO bot
-My Discord bot, its name is Rambo
+Our Discord bot, its name is Rambo
 
 ## Requirements
-In able to compile and run project, make sure `node@16` and `npm@8` or above is installed.
+In able to compile and run project, make sure `go1.19` or above is installed.
 
 Clone repository by `git clone` to your local computer:
 ```shell script
-$ git clone git@github.com:khoarx/rambo-bot.git
+$ git clone git@github.com:samothrakii/rambo-bot.git
 $ cd rambo-bot
 ```
 
 You need to add these following environment variables to `.env` (recommended) or `~/.profile` file
 ```
-TOKEN=[BOT_TOKEN]
-MONGO_URI=[MONGODB_URI]
-APP_ID=[APPLICATION_ID]
-GUILD_ID=[TARGET_GUILD_ID]
-CHANNEL_ID=[TARGET_CHANNEL_ID]
+PORT=[server_port]
+TOKEN=[bot_token]
+MONGO_URI=[mongodb_uri]
+APP_ID=[application_id]
+GUILD_ID=[target_guild_id]
+CHANNEL_ID=[target_channel_id]
+DEV_CHANNEL_ID=[dev_channel_id]
 ```
 
-## Build and run
+## Build and run Go
 Install all dependencies:
 ```shell script
-$ npm install
+$ cd go
+$ go mod download
 ```
 Compile and run your bot:
 ```shell script
-$ npm run build
-$ npm start
+$ go run src/main.go
 ```
 
 ## References
-[discord.js](https://discord.js.org/)
+[Gin](https://github.com/gin-gonic/gin)

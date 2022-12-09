@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "rambo-bot"
+version = "1.0.0"
+description = "My discord bot, its name is Rambo"
+authors = ["ldquan1996 <luongdoanhquan1996@gmail.com>"]
+license = ""
+readme = "README.md"
+packages = [{include = "rambo_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
