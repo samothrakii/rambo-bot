@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "rambo-bot"
+version = "1.0.0"
+description = "My discord bot, its name is Rambo"
+authors = [
+  "ldquan1996 <luongdoanhquan1996@gmail.com>",
+  "khoarx <khoarx@gmail.com>",
+]
+license = ""
+readme = "README.md"
+packages = [{ include = "rambo_bot" }]
+
+
+[tool.poe.tasks]
+start = "uvicorn main:app --port 9000 --reload"
+format = "black ."
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = { extras = ["all"], version = "^0.88.0" }
+flake8 = "^6.0.0"
+requests = "^2.28.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

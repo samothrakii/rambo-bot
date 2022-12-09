@@ -2,7 +2,7 @@
 Our Discord bot, its name is Rambo
 
 ## Requirements
-In able to compile and run project, make sure `go1.19` or above is installed.
+In able to compile and run project, make sure `python@3.10` and `poetry@1.2.2` or above are installed.
 
 Clone repository by `git clone` to your local computer:
 ```shell script
@@ -21,16 +21,22 @@ CHANNEL_ID=[target_channel_id]
 DEV_CHANNEL_ID=[dev_channel_id]
 ```
 
-## Build and run Go
+## Build and run
 Install all dependencies:
 ```shell script
-$ cd go
-$ go mod download
+$ poetry install
 ```
 Compile and run your bot:
 ```shell script
-$ go run src/main.go
+$ poetry run uvicorn main:app --reload
+```
+
+NOTE: Install `poethepoet` to be able to run poe tasks, it will save your time.
+```shell script
+$ python -m pip install poethepoet
+$ poe start # poetry run uvicorn main:app --reload
 ```
 
 ## References
-[Gin](https://github.com/gin-gonic/gin)
+[FastAPI](https://fastapi.tiangolo.com) \
+[Poetry](https://python-poetry.org/)
